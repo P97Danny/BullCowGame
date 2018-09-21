@@ -25,7 +25,7 @@ class FBullCowGame
 {
 public:
 	FBullCowGame(); // constructor
-	int32 MyCurrentTry;
+
 
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
@@ -41,6 +41,7 @@ public:
 	// ^^ Please try and ignore this and focus on the interface above ^^
 private:
 	// see constructor for initialisation
+	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
