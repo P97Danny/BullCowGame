@@ -2,6 +2,7 @@
 
 using int32 = int;
 
+//List of getters
 int32 FBullCowGame::GetMaxTries() const {return MyMaxTries;}
 int32 FBullCowGame::GetCurrentTry() const {	return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLenght() const { return MyHiddenWord.length(); }

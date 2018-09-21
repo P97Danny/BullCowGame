@@ -15,6 +15,7 @@ void PrintIntro();
 void PlayGame();
 FText GetValidGuess();
 bool AskToPlayAgain();
+void ShowRules();
 
 FBullCowGame BCGame; //instantiate a new game
 int32 MaxTries = BCGame.GetMaxTries();
@@ -80,6 +81,11 @@ FText GetValidGuess()
 		std::cout << "Enter your guess: ";
 		getline(std::cin, Guess);
 
+		if (Guess[1] == 'r' || Guess[1] == 'R')
+		{
+			ShowRules();
+		}
+
 		Status = BCGame.CheckGuessValidity(Guess);
 		switch (Status)
 		{
@@ -89,7 +95,7 @@ FText GetValidGuess()
 		case EGuessStatus::Not_Isogram:
 			std::cout << "Please enter a word without repeating letters." << std::endl;
 			break;
-		case EGuessStatus::Not_Lowercase:
+		case EGuessStatus::Not_Lowercase: 
 			std::cout << "Please use all lowercase!" << std::endl;
 			break;
 		default:
@@ -104,8 +110,20 @@ FText GetValidGuess()
 bool AskToPlayAgain()
 {
 	FText Response;
+	std::cout << "Too bad, you lose!" << std::endl;
 	std::cout << "Do you wanna play again? [Yes] or [No] " << std::endl;
 	getline(std::cin, Response);
 	return (Response[0] == 'y' || Response[0] == 'Y');
 }
+
+void ShowRules()
+{
+	std::cout << "Showing rules: \n" << std::endl;
+	std::cout << "1. Use all lowercase" << std::endl;
+	std::cout << "2. Enter only " << BCGame.GetHiddenWordLenght() << " letterd words" << std::endl;
+	std::cout << "3. Only use each letter once, entering the same letter doesn't get you more cows!" << std::endl;
+}
+
+
+
 
