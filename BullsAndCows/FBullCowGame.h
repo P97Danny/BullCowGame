@@ -1,6 +1,10 @@
+/* The game logic (no view code or direct user interaction
+The game is a simple guess game based on mastermind
+This file should not be touched!*/
 #pragma once
 #include <string>
 
+// to make the syntax Unreal engine friendly
 using FString = std::string;
 using int32 = int;
 
@@ -33,8 +37,7 @@ public:
 	bool IsGameWon() const;
 	EGuessStatus CheckGuessValidity(FString) const;
 
-	void Reset(); // TODO make a more rich value.
-
+	void Reset();
 	FBullCowCount SubmitValidGuess(FString);
 	// counts bulls and cows, and increasing turn #, assuming valid guess
 
@@ -42,7 +45,10 @@ public:
 private:
 	// see constructor for initialisation
 	int32 MyCurrentTry;
-	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
+
+	bool IsIsogram(FString) const;
+	bool IsLowerCase(FString) const;
+
 };
