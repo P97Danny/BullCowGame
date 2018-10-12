@@ -7,16 +7,16 @@
 // to make the syntax Unreal engine friendly
 using int32 = int;
 
-//List of getters
 FBullCowGame::FBullCowGame(){ Reset();} //default constructor
 
+//List of getters
 int32 FBullCowGame::GetCurrentTry() const {	return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLenght() const { return MyHiddenWord.length(); }
 bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
-int32 FBullCowGame::GetMaxTries() const // TODO let user select word length
+int32 FBullCowGame::GetMaxTries() const 
 {
-	TMap<int32, int32> WordLenghtToMaxTries{ {3,10}, {4,10}, {5,10}, {6,15}, {7,20}, {8,20} };
+	TMap<int32, int32> WordLenghtToMaxTries{ {3,10}, {4,10}, {5,15}, {6,15}, {7,20}, {8,20} };
 	return WordLenghtToMaxTries[MyHiddenWord.length()];
 }
 

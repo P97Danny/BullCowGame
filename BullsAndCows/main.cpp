@@ -17,6 +17,7 @@ void PlayGame();
 FText GetValidGuess();
 void PrintGameSummery();
 bool AskToPlayAgain();
+void EndOfGame();
 
 FBullCowGame BCGame; //instantiate a new game, wich we re-use across plays
 int32 MaxTries = BCGame.GetMaxTries();
@@ -32,7 +33,7 @@ int main()
 		bPlayAgain = AskToPlayAgain();
 	}
 	while (bPlayAgain);
-	std::cout << "\nD:<" << std::endl;
+	EndOfGame();
 	return 0;
 }
 
@@ -139,4 +140,9 @@ bool AskToPlayAgain()
 	std::cout << "Do you wanna play again with the same hidden word? [Yes] or [No] " << std::endl;
 	getline(std::cin, Response);
 	return (Response[0] == 'y' || Response[0] == 'Y');
+}
+
+void EndOfGame()
+{
+	std::cout << "Thanks for playing!" << std::endl;
 }
